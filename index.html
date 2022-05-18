@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- https://webrtc.github.io/samples/src/content/devices/input-output/ -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display Webcam Stream</title>
+ 
+<style>
+#container {
+	margin: 0px auto;
+	width: 1920px;
+	height: 1080px;
+	#border: 1px #333 solid;
+}
+#videoElement {
+	width: 1920px;
+	height: 1080px;
+	background-color: #000;
+}
+</style>
+</head>
+ 
+<body>
+<div id="container">
+	<video autoplay="true" id="videoElement" width="1920" height="1080">
+	
+	</video>
+</div>
+<script>
+var video = document.querySelector("#videoElement");
+
+const hdConstraints = {
+  video: { width: { min: 1920 }, height: { min: 1080 } },
+};
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia(hdConstraints)
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+</script>
+</body>
+</html>
