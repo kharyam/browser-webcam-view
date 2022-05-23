@@ -6,15 +6,24 @@
 <title>Display Webcam Stream</title>
  
 <style>
+
+body {
+       margin: 0px 0px 0px 0px;
+}
+
 #container {
-	margin: 0px auto;
+	margin: 0px 0px 0px 0px;
 	width: 1920px;
 	height: 1080px;
-	#border: 1px #333 solid;
+	border: 0px;
+        padding: 0px 0px 0px 0px;
 }
 #videoElement {
 	width: 1920px;
 	height: 1080px;
+	margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+	border: 0px;
 	background-color: #000;
 }
 </style>
@@ -38,7 +47,7 @@ if (navigator.mediaDevices.getUserMedia) {
     .then(function (stream) {
       video.srcObject = stream;
     })
-    .catch(function (err0r) {
+    .catch(function (error) {
       console.log("Something went wrong!");
     });
 }
