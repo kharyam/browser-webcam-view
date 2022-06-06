@@ -11,6 +11,5 @@ python3 -m http.server
 
 or run `start.sh` which simply runs the command above.
 
-## TODOs
-* Ability to select webcam 
+Right click to select video device if you have multiple connected.
 
