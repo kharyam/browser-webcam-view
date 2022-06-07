@@ -1,4 +1,4 @@
-function enableDevice(deviceId) {
+function enableDevice(deviceId = null) {
     var video = document.querySelector("#videoElement");
 
     hdConstraints = {
@@ -16,7 +16,7 @@ function enableDevice(deviceId) {
         document.getElementById("error").innerHTML=""
         })
         .catch(function (error) {
-            document.getElementById("error").innerHTML="Error with selected webcam."
+            document.getElementById("error").innerHTML='Error with selected webcam "' + getDeviceName(deviceId) + '"';
         });
     }
 }
@@ -48,7 +48,16 @@ navigator.mediaDevices.enumerateDevices().then(function (devices) {
 
 function onWebcamSelect() {
     deviceId = document.getElementById("webcams").value;
-    enableDevice(deviceId);
+    deviceName = document.getElementById("webcams").label;
+    enableDevice(deviceId, deviceName);
 }
 
-enableDevice(null);
+function getDeviceName(deviceId) {
+    var allInputs = document.getElementsByTagName("option");
+
+    for(var x=0;x<allInputs.length;x++)
+        if(allInputs[x].value == deviceId)
+           return allInputs[x].label;
+}
+
+enableDevice();

@@ -13,13 +13,14 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  text-align: center;
 }
 
 #videoElement {
   width: 1920px;
   height: 1080px;
   margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
   border: 0px;
   background-color: #000;
 }
