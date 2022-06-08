@@ -14,9 +14,11 @@ function enableDevice(deviceId = null) {
         .then(function (stream) {
         video.srcObject = stream;
         document.getElementById("error").innerHTML=""
+            document.getElementById('videoElement').style.visibility = 'visible';
         })
         .catch(function (error) {
-            document.getElementById("error").innerHTML='Error with selected webcam "' + getDeviceName(deviceId) + '"';
+            document.getElementById("error").innerHTML='Unable to display webcam "' + getDeviceName(deviceId) + '"';
+            document.getElementById('videoElement').style.visibility = 'hidden';
         });
     }
 }
