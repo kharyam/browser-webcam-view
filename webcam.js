@@ -31,8 +31,7 @@ function enableDevice(deviceId = null) {
 
 function getDeviceName(deviceId) {
     var allInputs = document.getElementsByTagName("option");
-
-    for(var x=0;x<allInputs.length;x++)
+    for(var x=0; x<allInputs.length; x++)
         if(allInputs[x].value == deviceId)
            return allInputs[x].label;
 }
@@ -59,7 +58,7 @@ function init() {
             }
         }
         innerHtml+='</select>'
-        menu.innerHTML = innerHtml ="<Select Camera<select name='webcams' id='webcams' size='" + numDevices + "' onchange='onWebcamSelect()'>" + innerHtml;
+        menu.innerHTML = "<Select Camera<select name='webcams' id='webcams' size='" + numDevices + "' onchange='onWebcamSelect()'>" + innerHtml;
        });
     enableDevice();
 }
